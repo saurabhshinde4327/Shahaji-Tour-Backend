@@ -14,11 +14,6 @@ module.exports = {
   server: {
     port: process.env.PORT || 6000
   },
-  razorpay: {
-    keyId: process.env.RAZORPAY_KEY_ID || 'rzp_test_RjF9tJ7SlLGEMA',
-    keySecret: process.env.RAZORPAY_KEY_SECRET || '5Qr8vdyTi1KKF0q5JxRjnIgC',
-    webhookSecret: process.env.RAZORPAY_WEBHOOK_SECRET || ''
-  },
   app: {
     name: 'Shahaji Tours API',
     version: '1.0.0',

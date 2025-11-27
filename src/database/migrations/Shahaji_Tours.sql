@@ -167,7 +167,23 @@ CREATE TABLE IF NOT EXISTS payments (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ============================================
--- 8. ADMIN_LOGS TABLE (Track admin actions)
+-- 8. SLIDER_IMAGES TABLE
+-- ============================================
+CREATE TABLE IF NOT EXISTS slider_images (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    image_url VARCHAR(500) NOT NULL,
+    title VARCHAR(200),
+    description TEXT,
+    display_order INT DEFAULT 0,
+    is_active TINYINT(1) DEFAULT 1,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME NULL,
+    INDEX idx_display_order (display_order),
+    INDEX idx_is_active (is_active)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ============================================
+-- 9. ADMIN_LOGS TABLE (Track admin actions)
 -- ============================================
 CREATE TABLE IF NOT EXISTS Admin_Logs (
     id INT AUTO_INCREMENT PRIMARY KEY,

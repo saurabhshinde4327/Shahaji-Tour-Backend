@@ -32,7 +32,6 @@ backend/
 │   │   ├── Booking.js
 │   │   ├── Client.js
 │   │   ├── Payment.js
-│   │   ├── RazorpayPayment.js
 │   │   ├── Route.js
 │   │   └── Transaction.js
 │   ├── services/                # Business logic
@@ -152,8 +151,6 @@ backend/
 - `GET /api/transactions/client/:clientId` - Get transactions by client
 
 ### Payment Routes
-- `POST /api/payments/create-order` - Create Razorpay order
-- `POST /api/payments/webhook` - Razorpay webhook handler
 - `GET /api/payments` - Get payment history
 - `GET /api/payments/receipt/:receiptNumber` - Get payment by receipt
 - `GET /api/payments/client/:clientId` - Get payments by client
@@ -176,7 +173,7 @@ The application uses MariaDB with the following main tables:
 - **Bookings** - Booking records
 - **Transactions** - Payment transactions
 - **Payment_History** - Payment history records
-- **payments** - Razorpay integration
+- **payments** - Payment records
 - **Admin_Logs** - Admin activity logs
 
 ### Default Admin Credentials
@@ -192,7 +189,6 @@ Configuration is managed through environment variables and `src/config/index.js`
 
 - Database connection (host, port, user, password, database)
 - Server port
-- Razorpay API keys
 - Application environment
 
 ## 📝 Development
@@ -229,7 +225,6 @@ npm test
 - **mysql2** - MySQL/MariaDB driver
 - **cors** - CORS middleware
 - **body-parser** - Request body parsing
-- **razorpay** - Payment gateway integration
 - **dotenv** - Environment variable management
 
 ## 🐛 Troubleshooting
