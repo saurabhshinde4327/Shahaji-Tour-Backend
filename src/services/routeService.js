@@ -56,6 +56,15 @@ class RouteService {
     logger.success(`Route deleted: ID ${id}`);
     return true;
   }
+
+  static async updateDestination(id, from, to) {
+    const updated = await Route.updateDestination(id, from, to);
+    if (!updated) {
+      throw new Error('Route not found');
+    }
+    logger.success(`Route destination updated: ID ${id}, ${from} -> ${to}`);
+    return true;
+  }
 }
 
 module.exports = RouteService;

@@ -100,6 +100,32 @@ class RouteController {
       return sendError(res, 'Database error: ' + error.message, HTTP_STATUS.INTERNAL_SERVER_ERROR);
     }
   }
+
+  static async updateDestination(req, res) {
+    try {
+      const { id } = req.params;
+      const { from, to } = req.body;
+
+      if (!from || !to) {
+        return sendError(res, 'Both from and to locations are required', HTTP_STATUS.BAD_REQUEST);
+      }
+
+      await RouteService.updateDestination(id, from, to);
+      return sendSuccess(res, {
+        route: {
+          id: parseInt(id),
+          from: from,
+          to: to
+        }
+      }, 'Route destination updated successfully');
+    } catch (error) {
+      logger.error('Error updating route destination:', error);
+      if (error.message === 'Route not found') {
+        return sendError(res, error.message, HTTP_STATUS.NOT_FOUND);
+      }
+      return sendError(res, 'Database error: ' + error.message, HTTP_STATUS.INTERNAL_SERVER_ERROR);
+    }
+  }
 }
 
 module.exports = RouteController;

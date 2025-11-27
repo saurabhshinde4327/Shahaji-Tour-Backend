@@ -12,7 +12,7 @@ module.exports = {
     queueLimit: 0
   },
   server: {
-    port: process.env.PORT || 61
+    port: process.env.PORT || 6000
   },
   razorpay: {
     keyId: process.env.RAZORPAY_KEY_ID || 'rzp_test_RjF9tJ7SlLGEMA',

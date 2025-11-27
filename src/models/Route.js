@@ -69,6 +69,14 @@ class Route {
     return result.affectedRows > 0;
   }
 
+  static async updateDestination(id, from, to) {
+    const [result] = await pool.execute(
+      'UPDATE Routes SET from_location = ?, to_location = ? WHERE id = ?',
+      [from, to, id]
+    );
+    return result.affectedRows > 0;
+  }
+
   static async delete(id) {
     const [result] = await pool.execute('DELETE FROM Routes WHERE id = ?', [id]);
     return result.affectedRows > 0;

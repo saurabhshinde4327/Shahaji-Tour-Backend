@@ -9,7 +9,13 @@ const logger = require('./utils/logger');
 const app = express();
 
 // Middleware
-app.use(cors());
+// CORS configuration - Allow all origins for Flutter app
+app.use(cors({
+  origin: '*', // Allow all origins for Flutter mobile app
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
+  credentials: false
+}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 

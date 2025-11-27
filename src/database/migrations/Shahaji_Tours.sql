@@ -1,10 +1,4 @@
--- ============================================
--- HOSTINGER VM DATABASE SETUP
--- MariaDB Database Setup for Shahaji Tours
--- IP: 91.108.105.168
--- User: root
--- Password: Saurabh@86684
--- ============================================
+
 
 -- Create database if it doesn't exist
 CREATE DATABASE IF NOT EXISTS shahaji_tours 
