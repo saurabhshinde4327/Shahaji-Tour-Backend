@@ -5,11 +5,18 @@ const logger = require('./utils/logger');
 
 const PORT = config.server.port;
 
-app.listen(PORT, '0.0.0.0', () => {
-  logger.info('\nShahaji Tours API Server');
-  logger.info(`API Base URL: http://localhost:${PORT}`);
-  logger.info(`Network Access: http://0.0.0.0:${PORT}`);
-  logger.info(`Environment: ${config.app.env}`);
-  logger.info(`Database: ${config.db.database} @ ${config.db.host}:${config.db.port}\n`);
+const HOST = process.env.HOST || '0.0.0.0';
+const SERVER_IP = process.env.SERVER_IP || '91.108.105.168';
+
+app.listen(PORT, HOST, () => {
+  logger.info('\n═══════════════════════════════════════════════════════');
+  logger.info('🚀 Shahaji Tours API Server');
+  logger.info('═══════════════════════════════════════════════════════');
+  logger.info(`📍 Local URL:     http://localhost:${PORT}`);
+  logger.info(`🌐 Network URL:   http://${SERVER_IP}:${PORT}`);
+  logger.info(`🔌 Listening on: ${HOST}:${PORT}`);
+  logger.info(`📦 Environment:   ${config.app.env}`);
+  logger.info(`💾 Database:      ${config.db.database} @ ${config.db.host}:${config.db.port}`);
+  logger.info('═══════════════════════════════════════════════════════\n');
 });
 
